@@ -1,0 +1,19 @@
+<html>
+
+<head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/public/stylesheets/navigation.css' />
+</head>
+
+<body>
+    {{> navigation}}
+    <h1>Logged in as, {{username}} </h1>
+    {{#each posts}}
+    <p>{{this.content}} was written by: {{this.author.username}}</p>
+    {{else}}
+    <p class="empty">No content</p>
+    {{/each}}
+
+</body>
+
+</html>

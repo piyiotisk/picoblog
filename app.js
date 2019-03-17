@@ -1,28 +1,20 @@
 const express = require('express');
 const hbs = require('hbs');
 const app = express();
+const indexRouter = require('./routes/index');
+const loginRouter = require('./routes/login');
 
 // view engine setup
 app.set('view engine', 'hbs');
-
-user = {
-    username: 'conpiy'
-}
-
-posts = [
-    {
-        'author': { 'username': 'alex' },
-        'content': `The PicoCoder's Node.js tutorial is cool.`
-    },
-    {
-        'author': { 'username': 'joanna' },
-        'content': 'I love javascript!'
-    }
-]
-
+// Set handlebars partials folder
 hbs.registerPartials(__dirname + '/views/partials');
 
-app.get('/', (req, res) => res.render('index', { title: 'PicoBlog', username: user.username, posts }));
+// Middleware
+app.use(express.urlencoded({ extended: true }));
+
+// Routes
+app.use('/login', loginRouter);
+app.use('/', indexRouter);
 
 const port = 3000;
 app.listen(port, () => console.log(`Server listening at: ${port}!`));

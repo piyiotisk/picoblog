@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <title>{{title}}</title>
+</head>
+
+<body>
+    {{> navigation}}
+    <h1>Sign Up</h1>
+
+    <form action="/signup" method="post">
+        <label>Email:</label>
+        <input type="email" name="email" required />
+
+        <label>Username:</label>
+        <input type="text" name="username" required />
+
+        <label>Password:</label>
+        <input type="password" name="password" required />
+
+        <button type="submit">Sign Up</button>
+    </form>
+</body>
+
+</html>

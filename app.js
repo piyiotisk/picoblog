@@ -3,6 +3,7 @@ const hbs = require('hbs');
 const app = express();
 const indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
+const signupRouter = require('./routes/signup');
 
 // view engine setup
 app.set('view engine', 'hbs');
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/login', loginRouter);
+app.use('/signup', signupRouter);
 app.use('/', indexRouter);
 
 const port = 3000;

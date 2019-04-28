@@ -2,20 +2,23 @@
 
 <head>
     <title>{{title}}</title>
+    <script src="/static/authentication.js"></script>
 </head>
 
 <body>
     {{> navigation}}
     <h1>Login</h1>
 
-    <form action="/login" method="post">
+    <form>
         <label>Username:</label>
-        <input type="email" name="email" required />
+        <input type="text" id="username" name="username" required />
 
         <label>Password:</label>
-        <input type="password" name="password" required />
-        <button type="submit">Log In</button>
+        <input type="password" id="password" name="password" required />
+        <label id="password-errors" style="visibility:hidden;">Wrong username and password</label>
     </form>
+    <button onclick="login()">Log In</button>
+
 </body>
 
 </html>
